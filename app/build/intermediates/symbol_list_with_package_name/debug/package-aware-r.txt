@@ -1570,6 +1570,7 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView
 id textWatcher
 id text_input_password_toggle
 id textinput_counter
@@ -1737,6 +1738,7 @@ string alt_bottom_sheet_thread_button_minus
 string alt_bottom_sheet_thread_button_plus
 string alt_bottom_sheet_threshold_button_minus
 string alt_bottom_sheet_threshold_button_plus
+string androidx_startup
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior

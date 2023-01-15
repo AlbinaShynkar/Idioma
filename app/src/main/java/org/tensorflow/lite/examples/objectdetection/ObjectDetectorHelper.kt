@@ -19,10 +19,13 @@ import android.R
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.ImageFormat.UNKNOWN
+import kotlinx.android.synthetic.main.activity_main.*
 import android.os.SystemClock
 import android.util.Log
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil.setContentView
+//import com.google.mlkit.common.model.DownloadConditions
+//import com.google.mlkit.nl.translate.*
 import org.tensorflow.lite.examples.objectdetection.databinding.ActivityMainBinding
 import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
@@ -36,8 +39,8 @@ import kotlinx.android.synthetic.main.activity_main.items;
 
 class ObjectDetectorHelper(
   var threshold: Float = 0.5f,
-  var numThreads: Int = 1,
-  var maxResults: Int = 3,
+  var numThreads: Int = 2,
+  var maxResults: Int = 2,
   var currentDelegate: Int = 0,
   var currentModel: Int = 0,
   val context: Context,
@@ -118,13 +121,6 @@ class ObjectDetectorHelper(
         val tensorImage = imageProcessor.process(TensorImage.fromBitmap(image))
 
         val results = objectDetector?.detect(tensorImage)
-
-        println(results)
-        println(results?.get(0))
-        println("------111111111--------")
-
-
-
         inferenceTime = SystemClock.uptimeMillis() - inferenceTime
         objectDetectorListener?.onResults(
 

@@ -53,7 +53,7 @@ android {
     }
 
     buildFeatures {
-        viewBinding true
+        viewBinding = true
     }
     androidResources {
         noCompress 'tflite'
@@ -70,9 +70,15 @@ project.ext.TEST_ASSETS_DIR = projectDir.toString() + '/src/androidTest/assets'
 apply from:'download_models.gradle'
 
 dependencies {
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+    // Translation API
+//    implementation 'com.google.mlkit:translate:17.0.1'
+//    implementation 'com.google.firebase:firebase-ml-natural-language:22.0.0'
+//    implementation 'com.google.firebase:firebase-ml-natural-language-translate-model:20.0.8'
+
     // Kotlin lang
     implementation 'androidx.core:core-ktx:1.6.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    //implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
 
     // App compat and UI things

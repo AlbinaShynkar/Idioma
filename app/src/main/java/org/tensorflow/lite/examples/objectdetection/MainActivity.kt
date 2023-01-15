@@ -35,9 +35,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
-        val tv1: TextView = findViewById(R.id.items)
-        tv1.text = "!23"
-
+        val tv1: TextView = findViewById(R.id.textView)
+        tv1.text = "Your words: "
+        val tv2: TextView = findViewById(R.id.items)
+        tv2.text = "Nothing here yet"
     }
 
     override fun onBackPressed() {

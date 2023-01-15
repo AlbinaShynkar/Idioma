@@ -28,14 +28,18 @@ public final class ActivityMainBinding implements ViewBinding {
   public final TextView items;
 
   @NonNull
+  public final TextView textView;
+
+  @NonNull
   public final Toolbar toolbar;
 
   private ActivityMainBinding(@NonNull CoordinatorLayout rootView,
       @NonNull FragmentContainerView fragmentContainer, @NonNull TextView items,
-      @NonNull Toolbar toolbar) {
+      @NonNull TextView textView, @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.fragmentContainer = fragmentContainer;
     this.items = items;
+    this.textView = textView;
     this.toolbar = toolbar;
   }
 
@@ -78,6 +82,12 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.textView;
+      TextView textView = ViewBindings.findChildViewById(rootView, id);
+      if (textView == null) {
+        break missingId;
+      }
+
       id = R.id.toolbar;
       Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
       if (toolbar == null) {
@@ -85,7 +95,7 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       return new ActivityMainBinding((CoordinatorLayout) rootView, fragmentContainer, items,
-          toolbar);
+          textView, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
